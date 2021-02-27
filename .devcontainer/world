@@ -1,9 +1,0 @@
-app-editors/vim
-app-portage/gentoolkit
-app-shells/zsh
-dev-lang/go
-dev-util/bazel
-dev-vcs/git
-net-misc/curl
-net-libs/nodejs
-sys-apps/yarn

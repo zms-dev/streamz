@@ -6,7 +6,7 @@
         "dockerfile": "Dockerfile"
     },
     "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.shell.linux": "/bin/zsh",
         "files.autoSave": "afterDelay",
         "eslint.format.enable": true,
         "eslint.alwaysShowStatus": true,
