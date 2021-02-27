@@ -53,6 +53,8 @@
         "steoates.autoimport",
         "dbaeumer.vscode-eslint",
         "mike-co.import-sorter",
-        "syler.sass-indented"
+        "syler.sass-indented",
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced"
     ]
 }
