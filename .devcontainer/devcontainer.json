@@ -10,7 +10,6 @@
         "files.autoSave": "afterDelay",
         "eslint.format.enable": true,
         "eslint.alwaysShowStatus": true,
-        "eslint.packageManager": "yarn",
         "eslint.probe": [
             "javascript",
             "javascriptreact",
@@ -21,19 +20,35 @@
             "markdown",
             "json"
         ],
-        "prettier.packageManager": "yarn",
+        "eslint.options": {
+            "extensions": [".ts", ".html"]
+        },
+        "eslint.validate": [
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "html"
+        ],
         "editor.codeActionsOnSave": {
-            "source.fixAll": true
+            "source.fixAll": true,
         },
         "editor.defaultFormatter": "dbaeumer.vscode-eslint",
         "editor.formatOnSave": true,
-        "editor.rulers": [80, 120]
+        "editor.rulers": [80, 120],
+        "css.validate": false,
+        "less.validate": false,
+        "scss.validate": false,
+        "prettier.packageManager": "yarn",
+        "eslint.packageManager": "yarn",
+        "stylelint.packageManager": "yarn"
     },
     "mounts": [
         "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
         "source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
         "source=zsh_history,target=/zsh_history,type=volume",
-        "source=portage,target=/var/tmp/portage,type=volume",
+        "source=cache,target=/var/cache,type=volume",
+        "source=tmp,target=/var/tmp,type=volume",
         "source=bazel,target=/root/.cache/bazel,type=volume"
     ],
     "extensions": [
@@ -55,6 +70,8 @@
         "mike-co.import-sorter",
         "syler.sass-indented",
         "yzhang.markdown-all-in-one",
-        "shd101wyy.markdown-preview-enhanced"
+        "shd101wyy.markdown-preview-enhanced",
+        "oouo-diogo-perdigao.docthis",
+        "stylelint.vscode-stylelint"
     ]
 }

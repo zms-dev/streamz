@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "experimentalDecorators": true
   },
   "include": [
-    "**/*.ts"
+    "src/"
   ],
 }

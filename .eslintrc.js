@@ -4,25 +4,44 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['google', 'prettier'],
+  extends: [
+    'google',
+    'prettier',
+  ],
   overrides: [
     {
       parser: '@typescript-eslint/parser',
-      files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+      files: ['*.ts', '*.tsx'],
       parserOptions: {
-        project: './src/tsconfig.lint.json',
+        project: './tsconfig.lint.json',
         sourceType: 'module',
+        debugLevel: true,
       },
       extends: [
+        'plugin:@angular-eslint/recommended',
         'plugin:@typescript-eslint/recommended',
+        'plugin:@angular-eslint/template/process-inline-templates',
+        'plugin:jsdoc/recommended',
       ],
       rules: {
+        'new-cap': ['off'],
+        'require-jsdoc': ['off'],
         'rxjs/no-async-subscribe': 'error',
         'rxjs/no-ignored-observable': 'error',
         'rxjs/no-ignored-subscription': 'error',
         'rxjs/no-nested-subscribe': 'error',
         'rxjs/no-unbound-methods': 'error',
         'rxjs/throw-error': 'error',
+        '@angular-eslint/directive-selector': ['error', {
+          type: 'attribute',
+          prefix: 'streamz',
+          style: 'camelCase',
+        }],
+        '@angular-eslint/component-selector': ['error', {
+          type: 'element',
+          prefix: 'streamz',
+          style: 'kebab-case',
+        }],
         '@typescript-eslint/await-thenable': 'error',
         '@typescript-eslint/no-floating-promises': 'error',
         '@typescript-eslint/no-for-in-array': 'error',
@@ -38,10 +57,33 @@ module.exports = {
         '@typescript-eslint/restrict-plus-operands': 'error',
         '@typescript-eslint/restrict-template-expressions': 'error',
         '@typescript-eslint/unbound-method': 'error',
+        "jsdoc/require-jsdoc": ["error", {
+          "contexts": [
+            "TSInterfaceDeclaration",
+            "TSMethodSignature",
+            "TSPropertySignature"
+          ],
+          "require": {
+            "ClassDeclaration": true,
+            "ClassExpression": true,
+            "MethodDefinition": true
+          }
+        }],
       },
     },
+    {
+      "files": ["*.ng.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    }
   ],
-  plugins: ['@typescript-eslint', 'rxjs', 'prettier'],
+  plugins: [
+    '@typescript-eslint',
+    'rxjs',
+    'prettier',
+    '@angular-eslint',
+    'jsdoc',
+  ],
   rules: {
     'prettier/prettier': 'error',
     'arrow-body-style': ['error', 'as-needed'],
@@ -55,5 +97,6 @@ module.exports = {
     'semi': [2, 'always'],
     'no-implied-eval': 'off',
     'require-await': 'off',
+    'max-len': ['error', { 'code': 100 }],
   },
 };

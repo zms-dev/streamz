@@ -26,6 +26,10 @@ yarn install
 bazel build //src:tsconfig.server.json
 ```
 
+## Frontend Features
+
+## Backend Features
+
 ## DevContainer Features
 
 * Gentoo Base Image
