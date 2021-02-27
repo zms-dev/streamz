@@ -1,0 +1,58 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.161.0/containers/bazel
+{
+    "name": "DevContainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "files.autoSave": "afterDelay",
+        "eslint.format.enable": true,
+        "eslint.alwaysShowStatus": true,
+        "eslint.packageManager": "yarn",
+        "eslint.probe": [
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "html",
+            "vue",
+            "markdown",
+            "json"
+        ],
+        "prettier.packageManager": "yarn",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true
+        },
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnSave": true,
+        "editor.rulers": [80, 120]
+    },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+        "source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+        "source=zsh_history,target=/zsh_history,type=volume",
+        "source=portage,target=/var/tmp/portage,type=volume",
+        "source=bazel,target=/root/.cache/bazel,type=volume"
+    ],
+    "extensions": [
+        "pkief.material-icon-theme",
+        "bazelbuild.vscode-bazel",
+        "unional.vscode-sort-package-json",
+        "gamunu.vscode-yarn",
+        "eg2.vscode-npm-script",
+        "christian-kohler.npm-intellisense",
+        "pflannery.vscode-versionlens",
+        "esbenp.prettier-vscode",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.vscode-typescript-next",
+        "johnpapa.angular2",
+        "angular.ng-template",
+        "aaron-bond.better-comments",
+        "steoates.autoimport",
+        "dbaeumer.vscode-eslint",
+        "mike-co.import-sorter",
+        "syler.sass-indented"
+    ]
+}

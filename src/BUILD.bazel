@@ -1,0 +1,19 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_config")
+
+ts_config(
+    name = "tsconfig-test",
+    src = "tsconfig.test.json",
+    deps = [":tsconfig.json"],
+)
+
+ts_config(
+    name = "tsconfig-client",
+    src = "tsconfig.client.json",
+    deps = [":tsconfig.json"],
+)
+
+ts_config(
+    name = "tsconfig-server",
+    src = "tsconfig.server.json",
+    deps = [":tsconfig.json"],
+)
