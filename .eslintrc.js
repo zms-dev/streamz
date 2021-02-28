@@ -42,6 +42,8 @@ module.exports = {
           prefix: 'streamz',
           style: 'kebab-case',
         }],
+        // Only allow static https://github.com/angular-eslint/angular-eslint/issues/161
+        '@angular-eslint/no-host-metadata-property': ['off'],
         '@typescript-eslint/await-thenable': 'error',
         '@typescript-eslint/no-floating-promises': 'error',
         '@typescript-eslint/no-for-in-array': 'error',

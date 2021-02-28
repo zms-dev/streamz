@@ -30,7 +30,6 @@ yarn frontend::devserver
 
 * [ ] Absolute imports that work with bazel, eslint, and intellisense
 * [ ] Default index.ts imports
-* [ ] Angualr material themeing
 
 ## Issues
 

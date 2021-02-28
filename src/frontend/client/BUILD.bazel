@@ -2,7 +2,7 @@ load("//tools:ng_ts_library.bzl", "ng_ts_library")
 load("//tools:html_assets.bzl", "html_assets")
 load("@npm//@bazel/typescript:index.bzl", "ts_config")
 load("@npm//@bazel/concatjs:index.bzl", "concatjs_devserver")
-load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
 
 package_group(
     name = "internal",
@@ -43,6 +43,23 @@ ng_ts_library(
 sass_binary(
     name = "styles",
     src = "main.scss",
+    deps = [":theme"],
+)
+
+sass_library(
+    name = "angular_material_theming",
+    srcs = [
+        "@npm//:node_modules/@angular/material/_theming.scss",
+    ],
+)
+
+sass_library(
+    name = "theme",
+    srcs = ["main.theme.scss"],
+    deps = [
+        ":angular_material_theming",
+        "//src/frontend/client/app:theme",
+    ],
 )
 
 html_assets(

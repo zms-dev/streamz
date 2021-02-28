@@ -1,0 +1,122 @@
+@use 'src/frontend/client/app/app.component.theme' as app;
+
+@import '//fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap';
+@import '//fonts.googleapis.com/css?family=Nunito+Sans&display=swap';
+@import '//fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap';
+@import 'external/npm/node_modules/@angular/material/theming';
+
+$app-default-theme: (
+  primary: mat-palette($mat-pink),
+  accent: mat-palette($mat-orange),
+  attention: mat-palette($mat-purple),
+  warn: mat-palette($mat-red),
+  is-dark: false,
+  foreground: (
+    base: black,
+    divider: $dark-dividers,
+    dividers: $dark-dividers,
+    disabled: $dark-disabled-text,
+    disabled-button: rgba(black, 0.26),
+    disabled-text: $dark-disabled-text,
+    elevation: black,
+    hint-text: $dark-disabled-text,
+    secondary-text: $dark-secondary-text,
+    icon: rgba(black, 0.54),
+    icons: rgba(black, 0.54),
+    text: rgba(black, 0.87),
+    slider-min: rgba(black, 0.87),
+    slider-off: rgba(black, 0.26),
+    slider-off-active: rgba(black, 0.38),
+  ),
+  background: (
+    status-bar: map_get($mat-grey, 300),
+    app-bar: map_get($mat-grey, 200),
+    background: map_get($mat-grey, 100),
+    hover: rgba(black, 0.04),
+    card: white,
+    dialog: white,
+    disabled-button: rgba(black, 0.12),
+    raised-button: white,
+    focused-button: $dark-focused,
+    selected-button: map_get($mat-grey, 300),
+    selected-disabled-button: map_get($mat-grey, 400),
+    disabled-button-toggle: map_get($mat-grey, 200),
+    unselected-chip: map_get($mat-grey, 300),
+    disabled-list-option: map_get($mat-grey, 200),
+    tooltip: map_get($mat-grey, 900),
+  ),
+);
+
+$app-dark-theme: (
+  primary: mat-palette($mat-pink),
+  accent: mat-palette($mat-orange),
+  attention: mat-palette($mat-purple),
+  warn: mat-palette($mat-red),
+  is-dark: true,
+  foreground: (
+    base: white,
+    divider: $light-dividers,
+    dividers: $light-dividers,
+    disabled: $light-disabled-text,
+    disabled-button: rgba(white, 0.3),
+    disabled-text: $light-disabled-text,
+    elevation: black,
+    hint-text: $light-disabled-text,
+    secondary-text: $light-secondary-text,
+    icon: white,
+    icons: white,
+    text: white,
+    slider-min: white,
+    slider-off: rgba(white, 0.3),
+    slider-off-active: rgba(white, 0.3),
+  ),
+  background: (
+    status-bar: black,
+    app-bar: map_get($mat-grey, 900),
+    background: #303030,
+    hover: rgba(white, 0.04),
+    card: map_get($mat-grey, 800),
+    dialog: map_get($mat-grey, 800),
+    disabled-button: rgba(white, 0.12),
+    raised-button: map-get($mat-grey, 800),
+    focused-button: $light-focused,
+    selected-button: map_get($mat-grey, 900),
+    selected-disabled-button: map_get($mat-grey, 800),
+    disabled-button-toggle: black,
+    unselected-chip: map_get($mat-grey, 700),
+    disabled-list-option: black,
+    tooltip: map_get($mat-grey, 700),
+  ),
+);
+
+$app-typography: mat-typography-config(
+  $font-family: 'Nunito, Roboto, sans-serif',
+  $display-4: mat-typography-level(112px, 112px, 300),
+  $display-3: mat-typography-level(56px, 56px, 400),
+  $display-2: mat-typography-level(45px, 48px, 400),
+  $display-1: mat-typography-level(34px, 40px, 400),
+  $headline: mat-typography-level(24px, 32px, 400),
+  $title: mat-typography-level(20px, 32px, 500),
+  $subheading-2: mat-typography-level(16px, 28px, 400),
+  $subheading-1: mat-typography-level(15px, 24px, 400),
+  $body-2: mat-typography-level(14px, 24px, 500),
+  $body-1: mat-typography-level(14px, 20px, 400),
+  $caption: mat-typography-level(12px, 20px, 400),
+  $button: mat-typography-level(14px, 14px, 500),
+  $input: mat-typography-level(inherit, 1.125, 400),
+);
+
+@mixin core() {
+  @include mat-core();
+}
+
+@mixin theme($theme) {
+  @include angular-material-theme($theme);
+  @include app.theme($theme);
+}
+
+@mixin typography($config) {
+  @include mat-base-typography($config);
+  @include angular-material-typography($config);
+  @include app.typography($config);
+}

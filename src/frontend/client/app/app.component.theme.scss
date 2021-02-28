@@ -1,0 +1,35 @@
+@use 'src/frontend/client/core/core.theme' as core;
+
+@import 'external/npm/node_modules/@angular/material/theming';
+
+@mixin theme($theme) {
+  @include core.theme($theme);
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  @at-root body#{&} {
+    background-color: mat-color($background, background);
+  }
+
+  .streamz-app {
+    a {
+      color: mat-color($accent, 700);
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin typography($config) {
+  @include core.typography($config);
+
+  @at-root body#{&} {
+    @include mat-typography-level-to-styles($config, body-1);
+  }
+
+  .streamz-app {
+    font-size: 14px;
+  }
+}

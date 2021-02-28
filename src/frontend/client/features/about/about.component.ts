@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 
-import { ClientEnvironment, ENVIRONMENT } from '../../environment';
+import { ClientEnvironment, ENVIRONMENT } from '../../environment/index';
 
 /**
  *

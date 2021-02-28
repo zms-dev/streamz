@@ -1,15 +1,18 @@
 {
   "extends": [
     "stylelint-config-standard",
+    "stylelint-config-idiomatic-order",
     "stylelint-prettier/recommended",
     "stylelint-config-sass-recommended"
   ],
   "plugins": [
     "stylelint-scss",
+    "stylelint-order",
     "stylelint-prettier"
   ],
   "rules": {
     "prettier/prettier": true,
-    "color-no-invalid-hex": true
+    "color-no-invalid-hex": true,
+    "selector-max-compound-selectors": 5
   }
 }

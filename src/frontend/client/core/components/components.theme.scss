@@ -1,0 +1,12 @@
+@use 'src/frontend/client/core/components/header/header.component.theme' as header;
+@use 'src/frontend/client/core/components/sidebar/sidebar.component.theme' as sidebar;
+
+@mixin theme($theme) {
+  @include header.theme($theme);
+  @include sidebar.theme($theme);
+}
+
+@mixin typography($config) {
+  @include header.typography($config);
+  @include sidebar.typography($config);
+}

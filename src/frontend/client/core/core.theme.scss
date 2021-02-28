@@ -1,0 +1,9 @@
+@use 'src/frontend/client/core/components/components.theme' as components;
+
+@mixin theme($theme) {
+  @include components.theme($theme);
+}
+
+@mixin typography($config) {
+  @include components.typography($config);
+}

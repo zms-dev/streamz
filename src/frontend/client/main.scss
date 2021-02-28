@@ -1,9 +1,4 @@
-@import '//fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap';
-@import '//fonts.googleapis.com/css?family=Nunito+Sans&display=swap';
-@import '//fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined&display=swap';
-@import 'external/npm/node_modules/@angular/material/theming';
-
-@include mat-core();
+@use './main.theme' as main;
 
 html,
 body {
@@ -16,6 +11,16 @@ html {
 }
 
 body {
-  margin: 0;
   display: flex;
+  margin: 0;
 }
+
+@include main.core();
+
+@include main.theme(main.$app-default-theme);
+
+.dark-theme {
+  @include main.theme(main.$app-dark-theme);
+}
+
+@include main.typography(main.$app-typography);

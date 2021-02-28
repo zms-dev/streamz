@@ -1,0 +1,33 @@
+<mat-toolbar>
+    <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Navigation</span>
+</mat-toolbar>
+
+<mat-nav-list dense>
+    <mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true, isActive: true }"
+        matTooltip="Info about the action" matTooltipPosition="right">
+        <mat-icon mat-list-icon>
+            home
+        </mat-icon>
+        <div mat-line>
+            Home
+        </div>
+    </mat-list-item>
+</mat-nav-list>
+
+<mat-divider></mat-divider>
+
+<mat-nav-list dense>
+    <mat-list-item routerLink="/about" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true, isActive: true }" matTooltip="Info about the action"
+        matTooltipPosition="right">
+        <mat-icon mat-list-icon>
+            info
+        </mat-icon>
+        <div mat-line>
+            About
+        </div>
+    </mat-list-item>
+</mat-nav-list>

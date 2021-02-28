@@ -7,7 +7,6 @@
     },
     "settings": {
         "terminal.integrated.shell.linux": "/bin/zsh",
-        "files.autoSave": "afterDelay",
         "eslint.format.enable": true,
         "eslint.alwaysShowStatus": true,
         "eslint.probe": [
@@ -36,6 +35,9 @@
         "editor.defaultFormatter": "dbaeumer.vscode-eslint",
         "editor.formatOnSave": true,
         "editor.rulers": [80, 120],
+        "[html]": {
+            "editor.defaultFormatter": "vscode.html-language-features"
+        },
         "css.validate": false,
         "less.validate": false,
         "scss.validate": false,
