@@ -13,7 +13,7 @@ RUN apt-get update \
 RUN wget -O go.tgz "https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz"; \
   tar -C /usr/local -xzf go.tgz; \
   rm go.tgz;
-ENV PATH=$PATH:/usr/local/go/bin
+ENV PATH=$PATH:/go/bin:/usr/local/go/bin
 ENV GOPATH /go
 
 # Google Cloud

@@ -83,6 +83,7 @@ module.exports = {
     'prettier',
     '@angular-eslint',
     'jsdoc',
+    'html',
   ],
   rules: {
     'prettier/prettier': 'error',

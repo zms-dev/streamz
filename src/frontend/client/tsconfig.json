@@ -1,18 +1,12 @@
 {
     "extends": "../../../tsconfig.client.json",
     "compilerOptions": {
-        "target": "es2019",
-        "baseUrl": "./",
-        "moduleResolution": "node",
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "strictPropertyInitialization": false
     },
     "angularCompilerOptions": {
         "fullTemplateTypeCheck": true,
         "preserveWhitespaces": true,
         "strictTemplates": true
-      },
-    "lib": [
-        "es2019",
-        "dom"
-    ],
+    }
 }

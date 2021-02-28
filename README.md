@@ -14,26 +14,29 @@ A playground project with a focus on developer expierence and operations.
 
 Open the repo in VSCode and connect to the [Remote Container](https://github.com/Microsoft/vscode-remote-release) called `DevContainer`. 
 
-Wait for Gentoo/Portage to install the base packages.
-
-> :warning: **Note**: First build could take a while, both Bazel and the Container should be cached across rebuilds.
-
 ```shell
 yarn install
 ```
 
 ```shell
-bazel build //src:tsconfig.server.json
+bazel run //src/frontend/client:dev_server
 ```
 
-## Frontend Features
+```shell
+yarn frontend::devserver
+````
 
-## Backend Features
+## TODO
 
-## DevContainer Features
+* [ ] Absolute imports that work with bazel, eslint, and intellisense
+* [ ] Default index.ts imports
+* [ ] Angualr material themeing
 
-* Gentoo Base Image
-* NodeJS, Yarn, Bazel preinstalled
-* Volume Mount for node_modules
-* Volume Mount for Portage
-* Volume Mount for Bazel cache
+## Issues
+
+* [ ] Upgrade from NgRx v9 to v11 ([rules_nodejs/issues/2320](https://github.com/bazelbuild/rules_nodejs/issues/2320))
+
+## References
+
+* [flolu/fullstack-bazel](https://github.com/flolu/fullstack-bazel)
+* [bazelbuild/rules_nodejs/examples/angular](https://github.com/bazelbuild/rules_nodejs/tree/stable/examples/angular)

@@ -1,0 +1,28 @@
+load("//tools:ng_ts_library.bzl", "ng_ts_library")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+sass_binary(
+    name = "styles",
+    src = "about.component.scss",
+)
+
+ng_ts_library(
+    name = "about",
+    srcs = [
+        "about.component.ts",
+        "about.module.ts",
+    ],
+    angular_assets = [
+        ":styles",
+        ":about.component.ng.html",
+    ],
+    tsconfig = "//src/frontend/client:tsconfig",
+    deps = [
+        "//src/frontend/client/environment",
+        "@npm//@angular/common",
+        "@npm//@angular/core",
+        "@npm//@angular/router",
+    ],
+)

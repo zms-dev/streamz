@@ -1,0 +1,12 @@
+load("//tools:ng_ts_library.bzl", "ng_ts_library")
+
+package(default_visibility = ["//src/frontend/client:internal"])
+
+ng_ts_library(
+    name = "environment",
+    srcs = ["index.ts"],
+    tsconfig = "//src/frontend/client:tsconfig",
+    deps = [
+        "@npm//@angular/core",
+    ],
+)

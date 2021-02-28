@@ -1,17 +1,81 @@
 load("//tools:ng_ts_library.bzl", "ng_ts_library")
+load("//tools:html_assets.bzl", "html_assets")
+load("@npm//@bazel/typescript:index.bzl", "ts_config")
+load("@npm//@bazel/concatjs:index.bzl", "concatjs_devserver")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+package_group(
+    name = "internal",
+    packages = [
+        "//src/frontend/client/...",
+    ],
+)
+
+package(default_visibility = [":internal"])
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+    deps = ["//:tsconfig-client"],
+)
 
 ng_ts_library(
-    name = "client",
-    srcs = [
-        "main.dev.ts",
-        "main.prod.ts",
-    ],
-    tsconfig = "//:tsconfig.client.json",
+    name = "client_dev",
+    srcs = ["main.dev.ts"],
+    tsconfig = ":tsconfig",
     deps = [
-        "//src/frontend/client/app",
+        "//src/frontend/client/app:dev",
+        "@npm//@angular/platform-browser",
+    ],
+)
+
+ng_ts_library(
+    name = "client_prod",
+    srcs = ["main.prod.ts"],
+    tsconfig = ":tsconfig",
+    deps = [
+        "//src/frontend/client/app:prod",
         "@npm//@angular/core",
         "@npm//@angular/platform-browser",
-        "@npm//@angular/router",
-        "@npm//@ngrx/store",
     ],
+)
+
+sass_binary(
+    name = "styles",
+    src = "main.scss",
+)
+
+html_assets(
+    name = "html_dev",
+    asset_paths = [
+        "/_/ts_scripts.js",
+    ],
+    html_file = ":main.html",
+    manifest = ":manifest.webmanifest",
+    scripts = [
+        "@npm//:node_modules/zone.js/dist/zone.min.js",
+    ],
+    stylesheets = [
+        ":main.css",
+    ],
+)
+
+concatjs_devserver(
+    name = "dev_server",
+    additional_root_paths = ["src/frontend/client/html_dev"],
+    entry_module = "streamz/src/frontend/client/main.dev",
+    port = 4200,
+    scripts = [
+        "@npm//:node_modules/tslib/tslib.js",
+        "//tools:rxjs_umd_modules",
+    ],
+    static_files = [
+        "@npm//:node_modules/zone.js/dist/zone.min.js",
+        "//src/frontend/client/assets",
+        ":html_dev",
+        ":main.css",
+        ":favicon.ico",
+        ":manifest.webmanifest",
+    ],
+    deps = [":client_dev"],
 )
